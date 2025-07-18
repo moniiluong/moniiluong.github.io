@@ -13,7 +13,7 @@ export default function ContactSection() {
 					transition={{ duration: 0.6 }}
 					className="text-3xl md:text-4xl font-bold mb-8"
 				>
-					Let's Connect
+					Connect With Me
 				</motion.h2>
 				<motion.p
 					initial={{ opacity: 0, y: 20 }}
@@ -22,7 +22,7 @@ export default function ContactSection() {
 					transition={{ duration: 0.6, delay: 0.2 }}
 					className="text-gray-300 mb-6"
 				>
-					Have a project in mind? I'd love to hear about it.
+					Have a project in mind? I would love to hear about it. 
 				</motion.p>
 
 				<motion.div
