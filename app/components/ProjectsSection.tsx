@@ -14,9 +14,10 @@ const projects = [
 	},
 	{
 		id: 2,
-		title: 'X',
-		description: 'Empty',
-		image: '/laptop.jpg',
+		title: 'Outfit Recommendation System',
+		description: 'A web application with smart wardrobe cataloging, outfit recommendations, and calendar-based attire suggestions.',
+		image: '/Outfit.jpg',
+		web: 'https://outfit-recommendation-system.vercel.app/',
 	},
 ];
 
