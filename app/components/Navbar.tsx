@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Navbar() {
 	return (
-		<header className="sticky top-0 z-50 w-full bg-black/50 backdrop-blur-md text-white px-6 md:px-20 py-4 flex items-center justify-between font-sans">
+		<header className="fixed top-0 z-50 w-full bg-black/50 backdrop-blur-md text-white px-6 md:px-20 py-4 flex items-center justify-between font-sans">
 			{/* Logo */}
 			<div className="text-xl font-bold">
 				<span className="text-white">Monica</span>
