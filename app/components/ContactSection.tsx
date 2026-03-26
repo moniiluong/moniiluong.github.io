@@ -89,12 +89,35 @@ export default function ContactSection() {
 				</motion.div>
 
 				{/* Contact Form */}
-				<form className="space-y-6 bg-black border border-white/10 rounded-xl p-8">
+				<form
+					action="https://formspree.io/f/xjkovlvd"
+					method="POST"
+					className="space-y-6 bg-black border border-white/10 rounded-xl p-8"
+				>
+					<input type="hidden" name="_subject" value="New portfolio contact form submission" />
 					<div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-						<input type="text" placeholder="Name" className="w-full px-4 py-3 rounded-lg bg-white/5 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500" />
-						<input type="email" placeholder="Email Address" className="w-full px-4 py-3 rounded-lg bg-white/5 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500" />
+						<input
+							type="text"
+							name="name"
+							placeholder="Name"
+							required
+							className="w-full px-4 py-3 rounded-lg bg-white/5 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+						/>
+						<input
+							type="email"
+							name="email"
+							placeholder="Email Address"
+							required
+							className="w-full px-4 py-3 rounded-lg bg-white/5 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+						/>
 					</div>
-					<textarea rows={6} placeholder="Please send me a message" className="w-full px-4 py-3 rounded-lg bg-white/5 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"></textarea>
+					<textarea
+						rows={6}
+						name="message"
+						placeholder="Please send me a message"
+						required
+						className="w-full px-4 py-3 rounded-lg bg-white/5 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+					/>
 					<button type="submit" className="w-full py-3 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition">Send Email →</button>
 				</form>
 			</div>
