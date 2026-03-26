@@ -7,10 +7,10 @@ import Link from 'next/link';
 const projects = [
 	{
 		id: 1,
-		title: 'Gomoku Game',
-		description: 'A JavaFX Gomoku game with win detection and rule enforcement.',
-		image: '/GomokuPicture.jpg',
-		github: 'https://github.com/moniiluong/Gomoku',
+		title: 'SpotOn',
+		description: 'Built a mobile-first web app that helps students find available campus study spaces in real time. Developed an interactive map using Leaflet with dynamic, color-coded availability indicators and location details. Implemented frontend optimizations with Vite and LocalStorage caching to ensure fast, seamless access across devices.A JavaFX Gomoku game with win detection and rule enforcement.',
+		image: '/Spoton.jpg',
+		github: 'https://github.com/lone2307/SpotOn',
 	},
 	{
 		id: 2,
