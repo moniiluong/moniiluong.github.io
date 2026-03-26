@@ -91,12 +91,14 @@ export default function HeroSection() {
 					variants={itemVariants}
 					className="flex flex-col sm:flex-row gap-4 items-start sm:items-center mt-4"
 				>
-					<motion.button
+					<motion.a
 						whileHover={{ scale: 1.05, boxShadow: '0 0 20px rgba(168,85,247,0.6)' }}
+						href="/resume.pdf"
+						download="Monica-Luong-Resume.pdf"
 						className="border border-purple-400 text-purple-400 px-8 py-3 text-base rounded-full hover:bg-purple-400 hover:text-black transition"
 					>
 						Download CV
-					</motion.button>
+					</motion.a>
 
 					<div className="flex gap-5 text-purple-400 text-3xl">
 						<motion.i
