@@ -10,14 +10,16 @@ const projects = [
 		title: 'SpotOn',
 		description: 'Built a mobile-first web app that helps students find available campus study spaces in real time. Developed an interactive map using Leaflet with dynamic, color-coded availability indicators and location details. Implemented frontend optimizations with Vite and LocalStorage caching to ensure fast, seamless access across devices.A JavaFX Gomoku game with win detection and rule enforcement.',
 		image: '/Spoton.jpg',
-		github: 'https://github.com/lone2307/SpotOn',
+		web: 'https://spoton-tau.vercel.app/',
+		github: 'https://github.com/moniiluong/SpotOn',
 	},
 	{
 		id: 2,
 		title: 'Outfit Recommendation System',
 		description: 'A web application with smart wardrobe cataloging, outfit recommendations, and calendar-based attire suggestions.',
 		image: '/Outfit.jpg',
-		web: 'https://outfit-recommendation-system.vercel.app/',
+		web: 'https://outfit-recommendation-system-nlqjmc6kl-moniiluongs-projects.vercel.app/',
+		github: 'https://github.com/moniiluong/Outfit-Recommendation-System-',
 	},
 ];
 
@@ -57,12 +59,16 @@ export default function ProjectsSection() {
 							<h3 className="text-xl font-bold mb-2">{project.title}</h3>
 							<p className="text-gray-300 mb-4">{project.description}</p>
 							<div className="flex gap-4">
-								<Link
-									href="#"
-									className="text-sm px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full transition-colors"
-								>
-									View Project
-								</Link>
+								{project.web && (
+									<Link
+										href={project.web}
+										target="_blank"
+										rel="noopener noreferrer"
+										className="text-sm px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full transition-colors"
+									>
+										View Project
+									</Link>
+								)}
 								{project.github && (
 									<Link
 										href={project.github}
@@ -70,7 +76,7 @@ export default function ProjectsSection() {
 										rel="noopener noreferrer"
 										className="text-sm px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full transition-colors"
 									>
-										GitHub
+										View GitHub
 									</Link>
 								)}
 							</div>
