@@ -1,25 +1,33 @@
 import Link from 'next/link';
 
+const navItems = [
+	{ label: 'Home', href: '/#home' },
+	{ label: 'About', href: '/#about' },
+	{ label: 'Experience', href: '/#experience' },
+	{ label: 'Projects', href: '/#projects' },
+	{ label: 'Skills', href: '/#skills' },
+	{ label: 'Contact', href: '/#contact' },
+];
+
 export default function Navbar() {
 	return (
-		<header className="fixed top-0 z-50 w-full bg-black/50 backdrop-blur-md text-white px-6 md:px-20 py-4 flex items-center justify-between font-sans">
-			{/* Logo */}
-			<div className="text-xl font-bold">
-				<span className="text-white">Monica</span>
-				<span className="text-white"> Luong</span>
+		<header className="mac-navbar">
+			<div className="mac-nav-lights" aria-hidden="true">
+				<span className="traffic-light traffic-light-red" />
+				<span className="traffic-light traffic-light-yellow" />
+				<span className="traffic-light traffic-light-green" />
 			</div>
 
-			{/* Navigation Links */}
-			<nav className="flex items-center gap-6 text-sm md:text-base">
-				<Link href="#about" className="hover:text-purple-400 transition">About</Link>
-				<Link href="#projects" className="hover:text-purple-400 transition">Projects</Link>
-				<Link href="#skills" className="hover:text-purple-400 transition">Skills</Link>
-				<Link href="#contact">
-					<span className="px-4 py-2 rounded-full bg-purple-600 hover:bg-purple-500 transition text-sm md:text-base">
-						Contact Me
-					</span>
-				</Link>
+			<nav className="mac-nav-address" aria-label="Main navigation">
+				{navItems.map((item) => (
+					<Link key={item.href} href={item.href}>{item.label}</Link>
+				))}
 			</nav>
+
+			<div className="mac-nav-actions">
+				<a href="/resume.pdf" target="_blank">Resume</a>
+				<a href="https://github.com/moniiluong" target="_blank" rel="noopener noreferrer">GitHub</a>
+			</div>
 		</header>
 	);
 }

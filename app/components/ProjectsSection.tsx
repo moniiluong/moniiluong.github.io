@@ -3,86 +3,49 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-
-const projects = [
-	{
-		id: 1,
-		title: 'SpotOn',
-		description: 'Built a mobile-first web app that helps students find available campus study spaces in real time. Developed an interactive map using Leaflet with dynamic, color-coded availability indicators and location details. Implemented frontend optimizations with Vite and LocalStorage caching to ensure fast, seamless access across devices.A JavaFX Gomoku game with win detection and rule enforcement.',
-		image: '/Spoton.jpg',
-		web: 'https://spoton-tau.vercel.app/',
-		github: 'https://github.com/moniiluong/SpotOn',
-	},
-	{
-		id: 2,
-		title: 'Outfit Recommendation System',
-		description: 'A web application with smart wardrobe cataloging, outfit recommendations, and calendar-based attire suggestions.',
-		image: '/Outfit.jpg',
-		web: 'https://outfit-recommendation-system-nlqjmc6kl-moniiluongs-projects.vercel.app/',
-		github: 'https://github.com/moniiluong/Outfit-Recommendation-System-',
-	},
-];
+import { projects } from '../data/projects';
 
 export default function ProjectsSection() {
 	return (
-		<section id="projects" className="scroll-mt-28 py-12 md:py-20 px-4 max-w-7xl mx-auto">
+		<section id="projects" className="project-archive">
+			<div className="project-grid-paper">
+				<div className="project-objects" aria-label="Monica's projects">
+					{projects.map((project, index) => (
+						<motion.div
+							key={project.slug}
+							className={`project-object project-object-${index + 1}`}
+							initial={{ opacity: 0, y: 24, rotate: index % 2 === 0 ? -3 : 3 }}
+							whileInView={{ opacity: 1, y: 0, rotate: index % 2 === 0 ? -2 : 2 }}
+							viewport={{ once: true, amount: 0.3 }}
+							transition={{ duration: 0.5, delay: index * 0.1 }}
+						>
+							<Link href={`/projects/${project.slug}`} aria-label={`Read about ${project.title}`}>
+								<span className="project-object-tape" aria-hidden="true" />
+								<div className="project-object-image">
+									{project.image ? (
+										<Image src={project.image} alt="" fill sizes="(max-width: 768px) 76vw, 22vw" className="object-cover" />
+									) : (
+										<div className="project-placeholder" aria-hidden="true">
+											<span>{project.number}</span>
+											<small>your image here</small>
+										</div>
+									)}
+								</div>
+								<div className="project-object-caption">
+									<span>{project.number}</span>
+									<h3>{project.title}</h3>
+									<p>{project.shortDescription}</p>
+									<strong>open project ↗</strong>
+								</div>
+							</Link>
+						</motion.div>
+					))}
+				</div>
 
-			<motion.h2
-				initial={{ opacity: 0, y: 20 }}
-				whileInView={{ opacity: 1, y: 0 }}
-				viewport={{ once: true }}
-				transition={{ duration: 0.6 }}
-				className="text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-center"
-			>
-				Featured Projects
-			</motion.h2>
-
-			<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-				{projects.map((project) => (
-					<motion.div
-						key={project.id}
-						initial={{ opacity: 0, y: 20 }}
-						whileInView={{ opacity: 1, y: 0 }}
-						viewport={{ once: true }}
-						transition={{ duration: 0.6, delay: project.id * 0.1 }}
-						whileHover={{ scale: 1.02 }}
-						className="group relative aspect-video rounded-xl overflow-hidden bg-white/5 backdrop-blur-md border border-white/10"
-					>
-						<Image
-							src={project.image}
-							alt={project.title}
-							fill
-							className="object-cover transition-transform group-hover:scale-105"
-						/>
-						<div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors duration-300" />
-						<div className="absolute inset-0 p-6 flex flex-col justify-end z-10">
-							<h3 className="text-xl font-bold mb-2">{project.title}</h3>
-							<p className="text-gray-300 mb-4">{project.description}</p>
-							<div className="flex gap-4">
-								{project.web && (
-									<Link
-										href={project.web}
-										target="_blank"
-										rel="noopener noreferrer"
-										className="text-sm px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full transition-colors"
-									>
-										View Project
-									</Link>
-								)}
-								{project.github && (
-									<Link
-										href={project.github}
-										target="_blank"
-										rel="noopener noreferrer"
-										className="text-sm px-4 py-2 bg-white/10 hover:bg-white/20 rounded-full transition-colors"
-									>
-										View GitHub
-									</Link>
-								)}
-							</div>
-						</div>
-					</motion.div>
-				))}
+				<div className="project-archive-copy">
+					<p>A curated collection of projects, experiments, and ideas I’ve brought to life through code.</p>
+					<h2>welcome to my <em>work.</em></h2>
+				</div>
 			</div>
 		</section>
 	);
